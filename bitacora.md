@@ -118,3 +118,14 @@ Resultado a mano: 985000. Coincide con el programa.
 | 11 | medellín | sí | 356000 |
 
 Las demás ventas (bogotá, cali, pereira) no coinciden. Resultado a mano: 356000, igual al programa.
+
+## Funciones con métodos de arreglo y las cinco preguntas
+
+| Función | ¿Qué recorro? | ¿Qué filtro? | ¿Qué transformo? | ¿Qué acumulo? | ¿Cómo agrupo? |
+|---|---|---|---|---|---|
+| totalVendidoM | Todas las ventas (`reduce`) | Nada | Cada venta a su valor (cantidad × precio) | La suma de valores, inicia en 0 | No agrupo |
+| unidadesVendidasM | Todas las ventas (`reduce`) | Nada | Nada, uso `cantidad` directo | La suma de unidades, inicia en 0 | No agrupo |
+| ventasPorCiudadM | Todas las ventas (`filter` y luego `reduce`) | Las de la ciudad buscada, normalizada con trim y lowercase | Cada venta a su valor | La suma de valores, inicia en 0 | No agrupo (una sola ciudad) |
+| totalPorCiudad | Todas las ventas (`reduce`) | Nada | Nombre de ciudad normalizado; venta a valor | Total por ciudad, inicia en `{}` | Por ciudad normalizada (objeto como diccionario) |
+| unidadesPorProducto | Todas las ventas (`reduce`) | Nada | Nada | Unidades por producto, inicia en `{}` | Por nombre de producto |
+| topProductosPorValor | Todas las ventas (`reduce`), luego las entradas del diccionario (`Object.entries`, `map`) | Los k primeros tras ordenar (`slice`) | Cada venta a valor; cada entrada a `{ producto, valor }` | Valor por producto, inicia en `{}` | Por producto; después ordeno una copia (`[...lista]`) de mayor a menor |
