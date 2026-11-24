@@ -1,5 +1,17 @@
 module.exports = {};
 
+function ventasDelDia(ventas, fecha) {
+  const limpia = fecha.trim();
+  const delDia = ventas.filter((venta) => venta.fecha === limpia);
+  return {
+    fecha: limpia,
+    registros: delDia.length,
+    unidades: unidadesVendidasM(delDia),
+    total: totalVendidoM(delDia),
+    ticketPromedio: ticketPromedio(delDia), 
+  };
+}
+
 function valorVenta(venta) {
   return venta.cantidad * venta.precio;
 }
